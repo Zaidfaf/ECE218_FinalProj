@@ -17,7 +17,7 @@ void servoMotorInit();
 void setSpeed(int rpm);
 
 /**
- *  Sets the taget angle for the servo to turn to
+ *  Sets the target angle for the servo to turn to
  */
 void setAngle(int degrees);
 

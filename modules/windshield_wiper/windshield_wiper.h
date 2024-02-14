@@ -8,10 +8,10 @@
 //=====[Declaration of public data types]======================================
 
 typedef enum {
-    OFF,
-    LO,
-    INT,
-    HI
+    WIPER_OFF,
+    WIPER_LO,
+    WIPER_INT,
+    WIPER_HI
 } windshield_wiper_state_t;
 
 typedef enum {
