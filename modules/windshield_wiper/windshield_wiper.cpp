@@ -31,12 +31,23 @@
 #define WIPER_LOW_SPEED_RPM              30
 #define WIPER_HI_SPEED_RPM               40
 
-#define WIPER_LOW_SPEED_TIME_MS         372
-#define WIPER_HI_SPEED_TIME_MS          291
+#define WIPER_LOW_SPEED_TIME_UP_MS      372
+#define WIPER_LOW_SPEED_TIME_DOWN_MS    372
+#define WIPER_HI_SPEED_TIME_UP_MS       291
+#define WIPER_HI_SPEED_TIME_DOWN_MS     291
 
 #define SHORT_TIME_DELAY               3000
 #define MEDIUM_TIME_DELAY              5000
 #define LONG_TIME_DELAY                8000
+
+#define WIPER_MODE_INPUT_OFF           0.25
+#define WIPER_MODE_INPUT_LOW           0.50
+#define WIPER_MODE_INPUT_INT           0.75
+
+#define WIPER_DELAY_INPUT_SHORT        0.33
+#define WIPER_DELAY_INPUT_MEDIUM       0.66
+
+#define WIPER_UP_POSITION                67
 
 typedef enum {
     UP_SWING,
@@ -149,15 +160,15 @@ void windshieldWiperUpdate()
 
 windshield_wiper_state_t getWindshieldWiperState()
 {
-    if (true) 
+    if (windshield_wiper_mode.read() < WIPER_MODE_INPUT_OFF) 
     {
         return WIPER_OFF;
     } 
-    else if (true)
+    else if (windshield_wiper_mode.read() < WIPER_MODE_INPUT_LOW)
     {
         return WIPER_LO;
     }
-    else if (true)
+    else if (windshield_wiper_mode.read() < WIPER_MODE_INPUT_INT)
     {
         return WIPER_INT;
     }
@@ -169,11 +180,11 @@ windshield_wiper_state_t getWindshieldWiperState()
 
 windshield_wiper_delay_state_t getWindshieldWiperDelay()
 {
-    if (true) 
+    if (windshield_wiper_delay_mode.read() < WIPER_DELAY_INPUT_SHORT) 
     {  
         return SHORT;
     } 
-    else if (true)
+    else if (windshield_wiper_delay_mode.read() < WIPER_DELAY_INPUT_MEDIUM)
     {
         return MEDIUM;
     }
