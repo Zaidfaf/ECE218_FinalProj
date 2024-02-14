@@ -78,6 +78,7 @@ void windshieldWiperInit()
 
 void windshieldWiperUpdate() 
 {
+    servoMotorUpdate();
     windshield_wiper_state_t wiperState = getWindshieldWiperState();
     switch (wiperState)
     {
