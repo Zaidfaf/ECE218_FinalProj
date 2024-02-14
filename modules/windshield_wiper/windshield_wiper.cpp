@@ -76,11 +76,9 @@ void windshieldWiperUpdate()
         break;
         case WIPER_LO: case WIPER_INT:
             wiper_speed = WIPER_LOW_SPEED_RPM;
-            setSpeed(WIPER_LOW_SPEED_RPM);
         break;
         case WIPER_HI:
             wiper_speed = WIPER_HI_SPEED_RPM;
-            setSpeed(WIPER_HI_SPEED_RPM);
         break;
     }
 
@@ -90,10 +88,12 @@ void windshieldWiperUpdate()
         case UP_SWING:
             if (wiper_speed == WIPER_LOW_SPEED_RPM) 
             {
+                setSpeed(WIPER_LOW_SPEED_RPM);
                 delay_time_ms = WIPER_LOW_SPEED_TIME_MS;
             }
             else 
             {
+                setSpeed(WIPER_HI_SPEED_RPM);
                 delay_time_ms = WIPER_HI_SPEED_TIME_MS;
             }
             if (accumulated_delay_ms > delay_time_ms)
@@ -105,10 +105,12 @@ void windshieldWiperUpdate()
         case DOWN_SWING:
             if (wiper_speed == WIPER_LOW_SPEED_RPM) 
             {
+                setSpeed(- WIPER_LOW_SPEED_RPM);
                 delay_time_ms = WIPER_LOW_SPEED_TIME_MS;
             }
             else 
             {
+                setSpeed(- WIPER_HI_SPEED_RPM);
                 delay_time_ms = WIPER_HI_SPEED_TIME_MS;
             }
             if (accumulated_delay_ms > delay_time_ms)
