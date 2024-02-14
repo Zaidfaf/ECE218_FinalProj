@@ -10,10 +10,12 @@
 //=====[Declarations (prototypes) of public functions]=========================
 
 void servoMotorInit();
-
+void servoMotorUpdate();
 /**
  *  Sets the speed of the motor given some rpm
  */
+
+
 void setSpeed(int rpm);
 
 /**

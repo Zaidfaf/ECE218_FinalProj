@@ -13,6 +13,7 @@ void ignitionInit();
 
 void ignitionUpdate();
 
+bool isIgnition();
 //=====[#include guards - end]=================================================
 
 #endif // _IGNITION_H_

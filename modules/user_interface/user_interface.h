@@ -7,20 +7,11 @@
 
 //=====[Declaration of public data types]======================================
 
-typedef enum {
-    OFF,
-    LO,
-    INT,
-    HI
-} windshield_wiper_state_t;
 
 //=====[Declarations (prototypes) of public functions]=========================
 
-void windshieldWiperInit();
-
-void windshieldWiperUpdate();
-
-windshield_wiper_state_t getWindshieldWiperState();
+void userInterfaceInit();
+void userInterfaceUpdate();
 
 //=====[#include guards - end]=================================================
 
