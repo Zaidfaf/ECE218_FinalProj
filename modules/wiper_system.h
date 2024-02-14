@@ -1,7 +1,7 @@
 //=====[#include guards - begin]===============================================
 
-#ifndef _IGNITION_H_
-#define _IGNITION_H_
+#ifndef _WIPER_SYSTEM_H_
+#define _WIPER_SYSTEM_H_
 
 //=====[Declaration of public defines]=========================================
 
@@ -13,4 +13,4 @@
 
 //=====[#include guards - end]=================================================
 
-#endif // _IGNITION_H_
+#endif // _WIPER_SYSTEM_H_

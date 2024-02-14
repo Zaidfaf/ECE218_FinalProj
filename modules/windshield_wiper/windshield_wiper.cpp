@@ -100,12 +100,12 @@ void windshieldWiperUpdate()
             if (wiper_speed == WIPER_LOW_SPEED_RPM) 
             {
                 setSpeed(WIPER_LOW_SPEED_RPM);
-                delay_time_ms = WIPER_LOW_SPEED_TIME_MS;
+                delay_time_ms = WIPER_LOW_SPEED_TIME_UP_MS;
             }
             else 
             {
                 setSpeed(WIPER_HI_SPEED_RPM);
-                delay_time_ms = WIPER_HI_SPEED_TIME_MS;
+                delay_time_ms = WIPER_HI_SPEED_TIME_UP_MS;
             }
             if (accumulated_delay_ms > delay_time_ms)
             {
@@ -117,12 +117,12 @@ void windshieldWiperUpdate()
             if (wiper_speed == WIPER_LOW_SPEED_RPM) 
             {
                 setSpeed(- WIPER_LOW_SPEED_RPM);
-                delay_time_ms = WIPER_LOW_SPEED_TIME_MS;
+                delay_time_ms = WIPER_LOW_SPEED_TIME_DOWN_MS;
             }
             else 
             {
                 setSpeed(- WIPER_HI_SPEED_RPM);
-                delay_time_ms = WIPER_HI_SPEED_TIME_MS;
+                delay_time_ms = WIPER_HI_SPEED_TIME_DOWN_MS;
             }
             if (accumulated_delay_ms > delay_time_ms)
             {
