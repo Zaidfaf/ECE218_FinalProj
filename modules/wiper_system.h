@@ -1,18 +1,16 @@
 //=====[#include guards - begin]===============================================
 
-#ifndef _USER_INTERFACE_H_
-#define _USER_INTERFACE_H_
+#ifndef _IGNITION_H_
+#define _IGNITION_H_
 
 //=====[Declaration of public defines]=========================================
+
+#define TIME_INCREMENT_MS       20
 
 //=====[Declaration of public data types]======================================
 
 //=====[Declarations (prototypes) of public functions]=========================
 
-void userInterfaceInit();
-
-void userInterfaceUpdate();
-
 //=====[#include guards - end]=================================================
 
-#endif // _USER_INTERFACE_
+#endif // _IGNITION_H_
