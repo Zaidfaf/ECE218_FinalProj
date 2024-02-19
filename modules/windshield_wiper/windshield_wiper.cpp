@@ -115,63 +115,63 @@ void windshieldWiperInit()
 void windshieldWiperUpdate() 
 {
     servoMotorUpdate();
-    if (isIgnition()) 
-    {
-        windshield_wiper_state_t wiperState = getWindshieldWiperState();
-        switch (wiperState)
-        {
-            case WIPER_OFF:
-                setAngle(0);
-                setSpeed(LOW_SPEED);
-                wiperProcessState = HOLD;
-            break;
-            case WIPER_LO: case WIPER_INT:
-                setSpeed(LOW_SPEED);
-                wiper_speed = LOW_SPEED;
-            break;
-            case WIPER_HI:
-                setSpeed(HI_SPEED);
-                wiper_speed = HI_SPEED;
-            break;
-        }
 
-        switch (wiperProcessState)
-        {
-            case UP_SWING:
-                setAngle(WIPER_UP_POSITION);
-                if (wiper_speed == LOW_SPEED) 
-                {
-                    delay_time_ms = WIPER_LOW_SPEED_TIME_UP_MS;
-                }
-                else 
-                {
-                    delay_time_ms = WIPER_HI_SPEED_TIME_UP_MS;
-                }
-                if (accumulated_delay_ms > delay_time_ms)
-                {
-                    accumulated_delay_ms = 0;
-                    setAngle(0);
-                    wiperProcessState = DOWN_SWING;
-                }
-            break;
-            case DOWN_SWING:
+    windshield_wiper_state_t wiperState = getWindshieldWiperState();
+    switch (wiperState)
+    {
+        case WIPER_OFF:
+            // setAngle(0);
+            // setSpeed(LOW_SPEED);
+            // wiperProcessState = HOLD;
+        break;
+        case WIPER_LO: case WIPER_INT:
+            setSpeed(LOW_SPEED);
+            wiper_speed = LOW_SPEED;
+        break;
+        case WIPER_HI:
+            setSpeed(HI_SPEED);
+            wiper_speed = HI_SPEED;
+        break;
+    }
+
+    switch (wiperProcessState)
+    {
+        case UP_SWING:
+            setAngle(WIPER_UP_POSITION);
+            if (wiper_speed == LOW_SPEED) 
+            {
+                delay_time_ms = WIPER_LOW_SPEED_TIME_UP_MS;
+            }
+            else 
+            {
+                delay_time_ms = WIPER_HI_SPEED_TIME_UP_MS;
+            }
+            if (accumulated_delay_ms > delay_time_ms)
+            {
+                accumulated_delay_ms = 0;
                 setAngle(0);
-                if (wiper_speed == LOW_SPEED) 
-                {
-                    delay_time_ms = WIPER_LOW_SPEED_TIME_DOWN_MS;
-                }
-                else 
-                {
-                    delay_time_ms = WIPER_HI_SPEED_TIME_DOWN_MS;
-                }
-                if (accumulated_delay_ms > delay_time_ms)
-                {
-                    accumulated_delay_ms = 0;
-                    wiperProcessState = HOLD;
-                }
-            break;
-            case HOLD:
-                setAngle(0);
+                wiperProcessState = DOWN_SWING;
+            }
+        break;
+        case DOWN_SWING:
+            setAngle(0);
+            if (wiper_speed == LOW_SPEED) 
+            {
+                delay_time_ms = WIPER_LOW_SPEED_TIME_DOWN_MS;
+            }
+            else 
+            {
+                delay_time_ms = WIPER_HI_SPEED_TIME_DOWN_MS;
+            }
+            if (accumulated_delay_ms > delay_time_ms)
+            {
+                accumulated_delay_ms = 0;
+                wiperProcessState = HOLD;
+            }
+        break;
+        case HOLD:
+            setAngle(0);
+            if (isIgnition() && wiperState != WIPER_OFF) {
                 if (wiperState == WIPER_INT) {
                     switch (getWindshieldWiperDelay())
                     {
@@ -188,22 +188,18 @@ void windshieldWiperUpdate()
                     if (accumulated_delay_ms > delay_time_ms)
                     {
                         accumulated_delay_ms = 0;
+                        setAngle(WIPER_UP_POSITION);
                         wiperProcessState = UP_SWING;
                     }
                 } else {
-                    if (wiperState != WIPER_OFF) {
-                        setAngle(WIPER_UP_POSITION);
-                    }
+                    setAngle(WIPER_UP_POSITION);
                     wiperProcessState = UP_SWING;
                 }
-            break;
-        }
-
-        accumulated_delay_ms += TIME_INCREMENT_MS;
-    } else {
-        setSpeed(LOW_SPEED);
-        setAngle(0);
+            }
+        break;
     }
+
+    accumulated_delay_ms += TIME_INCREMENT_MS;
 }
 
 windshield_wiper_state_t getWindshieldWiperState()
