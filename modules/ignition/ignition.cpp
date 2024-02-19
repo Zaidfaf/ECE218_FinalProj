@@ -11,13 +11,6 @@
 * @section genRem General Remarks
 * [Write here relevant information about the program]
 *
-* @section changelog Changelog
-*
-* | Date | Description |
-* |:----------:|:-----------------------------------------------|
-* | 01/14/2024 | First version of program |
-*
-*
 */
 
 //=====[Libraries]=============================================================
@@ -27,7 +20,11 @@
 #include "wiper_system.h"
 #include "ignition.h"
 
+//=====[Declaration of private defines]========================================
+
 #define DEBOUNCE_BUTTON_TIME_MS                 40
+
+//=====[Declaration of private data types]=====================================
 
 typedef enum {
     BUTTON_UP,
@@ -36,25 +33,25 @@ typedef enum {
     BUTTON_RISING
 } buttonState_t;
 
-//=====[Declaration and initialization of public global objects]===============
+//=====[Declaration and initialization of private global objects]===============
 
 DigitalIn driverOccupancy(PD_7);
 DigitalIn ignitionButton(BUTTON1);
 
 DigitalOut ignitionLed(LED2);
 
-//=====[Declaration and initialization of public global variables]=============
+//=====[Declaration and initialization of private global variables]=============
 
-int accumulatedDebounceButtonTime     = 0;
+int accumulatedDebounceButtonTime = 0;
 buttonState_t ignitionButtonState;
 
-//=====[Declarations (prototypes) of public functions]=========================
+//=====[Declarations (prototypes) of private functions]=========================
 
 void debounceButtonInit();
 
 bool debounceButtonUpdate();
 
-//Implementation of global functions
+//=====[Implementations of public functions]===================================
 
 void ignitionInit() 
 {
@@ -79,6 +76,8 @@ bool isIgnition()
 {
     return ignitionLed.read() == ON;
 }
+
+//=====[Implementations of private functions]===================================
 
 void debounceButtonInit()
 {

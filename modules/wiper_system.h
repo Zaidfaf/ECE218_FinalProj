@@ -1,16 +1,15 @@
 //=====[#include guards - begin]===============================================
 
-#ifndef _IGNITION_H_
-#define _IGNITION_H_
+#ifndef _WIPER_SYSTEM_H_
+#define _WIPER_SYSTEM_H_
 
 //=====[Declaration of public defines]=========================================
 
+/**
+ *  A delay used across the system
+ */
 #define TIME_INCREMENT_MS       20
-
-//=====[Declaration of public data types]======================================
-
-//=====[Declarations (prototypes) of public functions]=========================
 
 //=====[#include guards - end]=================================================
 
-#endif // _IGNITION_H_
+#endif // _WIPER_SYSTEM_H_

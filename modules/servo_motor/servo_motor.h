@@ -7,6 +7,11 @@
 
 //=====[Declaration of public data types]======================================
 
+typedef enum {
+    LOW_SPEED,
+    HI_SPEED
+} motor_speed_t;
+
 //=====[Declarations (prototypes) of public functions]=========================
 
 void servoMotorInit();
@@ -16,12 +21,12 @@ void servoMotorUpdate();
  */
 
 
-void setSpeed(int rpm);
+void setSpeed(motor_speed_t rpm);
 
 /**
  *  Sets the target angle for the servo to turn to
  */
-void setAngle(int degrees);
+void setAngle(float degrees);
 
 //=====[#include guards - end]=================================================
 
