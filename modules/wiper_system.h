@@ -5,11 +5,10 @@
 
 //=====[Declaration of public defines]=========================================
 
+/**
+ *  A delay used across the system
+ */
 #define TIME_INCREMENT_MS       20
-
-//=====[Declaration of public data types]======================================
-
-//=====[Declarations (prototypes) of public functions]=========================
 
 //=====[#include guards - end]=================================================
 

@@ -3,14 +3,16 @@
 #ifndef _USER_INTERFACE_H_
 #define _USER_INTERFACE_H_
 
-//=====[Declaration of public defines]=========================================
-
-//=====[Declaration of public data types]======================================
-
 //=====[Declarations (prototypes) of public functions]=========================
 
+/**
+ *  Initializes the user interface
+ */
 void userInterfaceInit();
 
+/**
+ *  Updates the user interface
+ */
 void userInterfaceUpdate();
 
 //=====[#include guards - end]=================================================
