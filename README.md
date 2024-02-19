@@ -14,18 +14,21 @@ All information about the current mode of the wipers is displayed to the user an
 **Ignition Subsystem**
 Specification | Result | Comments
 --- | --- | ---
-Start the engine (i.e., light the blue LED) while the driver’s seat is occupied and when the ignition button is pushed | PASS | ---
-Keep the engine running even if the driver should exit the vehicle | PASS | ---
-When the engine is running, stop the engine when the ignition button is pushed and released | PASS | ---
+When the ignition button is pressed and the driver is seated, the blue LED turns on | PASS | ---
+If the driver leaves the vehicle, the ignition continues running | PASS | ---
+Pressing and releasing the ignition button turns off the engine when it is on | PASS | ---
 
 ---
 
 **Wiper Subsystem**
 Specification | Result | Comments
 --- | --- | ---
-If the engine is running, and the user selects HI, LO, INT, or OFF, run the wipers in the appropriate mode, with the typical parameter values | PASS | ---
-Read the desired delay time for INT mode from the intermittent delay time selector | PASS | ---
-Do not run the wipers if the engine is not running | PASS | ---
-Display the selected mode, including the delay time selection (SHORT, MEDIUM, or LONG) for intermittent mode | PASS | ---
-If the wiper mode selector is turned to OFF, or the engine is turned off, then if the wiper is moving, in any mode, complete the current cycle and return the wipers to 0 degrees | PASS | ---
-If the wiper is hesitating in INT mode, remain stationary | PASS | ---
+When the engine is running and the wiper mode is OFF, the wiper does not run and returns to zero position | PASS | ---
+When the engine is running and the wiper mode is LO, the wiper runs at ~30rpm and does continuous sweeps| PASS | ---
+When the engine is running and the wiper mode is HI, the wiper runs at ~40rpm and does continuous sweeps | PASS | ---
+When the engine is running and the wiper mode is INT, the wiper runs at ~30rpm, doing one sweep at a time and delaying based on a user selected delay time | PASS | ---
+Each INT time selection delays for the correct amount of time | PASS | ---
+If the engine is off, the wipers do not sweep | PASS | ---
+A display shows the current wiper mode (and wiper delay time if pertinent) | PASS | ---
+If the engine is turned off or the wiper mode is set to off, the wiper returns to the zero position after completing its current cycle | PASS | ---
+If the wiper is in intermittent mode and waiting to begin a sweep when the engine is turned off or the wiper mode is changed to off, the wiper remains at the zero position and does not begin a sweep | PASS | ---
